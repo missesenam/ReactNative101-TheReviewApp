@@ -7,23 +7,19 @@ import {
   FlatList,
 } from "react-native";
 import * as Font from "expo-font";
-import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font"; // good to use directly
 import { Link, useRouter } from "expo-router";
 import { globalStyles } from "../styles/global";
 import Card from "../shared/components/Card";
 import { useState } from "react";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
 
-  const [fontsLoaded] = Font.useFonts({
+  const [fontsLoaded] = useFonts({
     "nunito-regular": require("../assets/fonts/Nunito-Regular.ttf"),
     "nunito-bold": require("../assets/fonts/Nunito-Bold.ttf"),
   });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   const [reviews, setReviews] = useState([
     {
@@ -45,6 +41,14 @@ const index = () => {
       key: "3",
     },
   ]);
+
+  if (!fontsLoaded) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    ); // Avoid deprecated AppLoading
+  }
 
   return (
     <View style={globalStyles.container}>
@@ -72,4 +76,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
