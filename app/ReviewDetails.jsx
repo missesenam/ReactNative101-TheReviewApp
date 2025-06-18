@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
-import { globalStyles } from "../styles/global";
+import { globalStyles, images } from "../styles/global";
 import { useLocalSearchParams } from "expo-router";
 import Card from "../shared/components/Card";
 
@@ -11,7 +11,10 @@ const ReviewDetails = () => {
       <Card>
         <Text style={globalStyles.titleText}>{title}</Text>
         <Text>Rating: {rating}</Text>
-        <Text>{body}</Text>
+        <View style={styles.rat}>
+          <Text>{body}</Text>
+          <Image source={images.ratings[rating]} />
+        </View>
       </Card>
     </View>
   );
@@ -19,4 +22,12 @@ const ReviewDetails = () => {
 
 export default ReviewDetails;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  rat: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    marginTop: 10,
+  },
+});

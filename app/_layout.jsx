@@ -25,8 +25,17 @@ import { Drawer } from "expo-router/drawer";
 
 export default function Layout() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: "red" }}>
+      <Drawer
+      // screenOptions={{
+      //   drawerIcon: () => (
+      //     <Image
+      //       source={require("../assets/heart_logo.png")}
+      //       style={{ width: 20, height: 20 }}
+      //     />
+      //   ),
+      // }}
+      >
         <Drawer.Screen
           name="index"
           options={{
