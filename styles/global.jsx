@@ -25,6 +25,14 @@ export const globalStyles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
   },
+  moddleToggle: {
+    marginVertical: 10,
+    padding: 10,
+    fontFamily: "nunito-bold",
+    fontSize: 18,
+    textAlign: "center",
+    cursor: "pointer",
+  },
 });
 
 export const images = {

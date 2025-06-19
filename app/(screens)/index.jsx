@@ -5,20 +5,23 @@ import {
   View,
   Pressable,
   FlatList,
+  Modal,
 } from "react-native";
 import * as Font from "expo-font";
 import { useFonts } from "expo-font"; // good to use directly
 import { Link, useRouter } from "expo-router";
-import { globalStyles } from "../styles/global";
-import Card from "../shared/components/Card";
+import { globalStyles } from "../../styles/global";
+import Card from "../../shared/components/Card";
 import { useState } from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const Index = () => {
   const router = useRouter();
+  const [modelOpen, setModelOpen] = useState(false);
 
   const [fontsLoaded] = useFonts({
-    "nunito-regular": require("../assets/fonts/Nunito-Regular.ttf"),
-    "nunito-bold": require("../assets/fonts/Nunito-Bold.ttf"),
+    "nunito-regular": require("../../assets/fonts/Nunito-Regular.ttf"),
+    "nunito-bold": require("../../assets/fonts/Nunito-Bold.ttf"),
   });
 
   const [reviews, setReviews] = useState([
@@ -52,6 +55,24 @@ const Index = () => {
 
   return (
     <View style={globalStyles.container}>
+      <Modal visible={modelOpen} animationType="slide">
+        <View>
+          <FontAwesome
+            name="close"
+            size={20}
+            onPress={() => setModelOpen(false)}
+            style={globalStyles.moddleToggle}
+          />
+          <Text>Modal</Text>
+        </View>
+      </Modal>
+
+      <FontAwesome
+        name="plus"
+        size={20}
+        onPress={() => setModelOpen(true)}
+        style={globalStyles.moddleToggle}
+      />
       <FlatList
         data={reviews}
         renderItem={({ item }) => (
