@@ -14,6 +14,7 @@ import { globalStyles } from "../../styles/global";
 import Card from "../../shared/components/Card";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import ReviewForm from "../ReviewForm";
 
 const Index = () => {
   const router = useRouter();
@@ -63,7 +64,7 @@ const Index = () => {
             onPress={() => setModelOpen(false)}
             style={globalStyles.moddleToggle}
           />
-          <Text>Modal</Text>
+          <ReviewForm />
         </View>
       </Modal>
 

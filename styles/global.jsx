@@ -33,6 +33,13 @@ export const globalStyles = StyleSheet.create({
     textAlign: "center",
     cursor: "pointer",
   },
+  input: {
+    borderColor: "black",
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
 });
 
 export const images = {
